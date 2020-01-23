@@ -87,15 +87,15 @@ func TestCustomRelTime(t *testing.T) {
 	now := time.Now().Add(time.Millisecond * 250)
 	magnitudes := []RelTimeMagnitude{
 		{time.Second, "now", time.Second},
-		{2 * time.Second, "1 second %s", 1},
-		{time.Minute, "%d seconds %s", time.Second},
-		{Day - time.Second, "%d minutes %s", time.Minute},
-		{Day, "%d hours %s", time.Hour},
-		{2 * Day, "1 day %s", 1},
-		{Week, "%d days %s", Day},
-		{2 * Week, "1 week %s", 1},
-		{6 * Month, "%d weeks %s", Week},
-		{Year, "%d months %s", Month},
+		{2 * time.Second, "1 saniye %s", 1},
+		{time.Minute, "%d saniye %s", time.Second},
+		{Day - time.Second, "%d dakika %s", time.Minute},
+		{Day, "%d saat %s", time.Hour},
+		{2 * Day, "1 gün %s", 1},
+		{Week, "%d gün %s", Day},
+		{2 * Week, "1 hafta %s", 1},
+		{6 * Month, "%d hafta %s", Week},
+		{Year, "%d ay %s", Month},
 	}
 	customRelTime := func(then time.Time) string {
 		return CustomRelTime(then, time.Now(), "ago", "from now", magnitudes)
